@@ -17,8 +17,9 @@ class SearchBar extends Component {
 
 const formStyle = {
     margin:"auto",
-    width:"80%",
+    width:"90%",
     maxWidth:"500px",
+    paddingLeft:"23px"
 }
 
 const inputStyle = {
