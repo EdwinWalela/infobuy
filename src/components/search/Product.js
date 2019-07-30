@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function Product(props) {
+    let product = props.product
     return (
         <a href="">
             <div style={productStyle}>
-                <img alt="" style={imageStyle} src="https://i.roamcdn.net/hz/pi/listing-thumb-543w/a3120aebf877204e7e4b71a737ee21d9/-/hzfiles/pi/picture/qd7x6v4/487dc6d83ddc348ef0123c17591b879c26069ee0.png"/>
+                <img alt="" style={imageStyle} src={product.thumb}/>
                 <hr/>
-                <p style={nameStyle}>Product Name</p>
-                <h4 style={priceStyle}>KES 17,499</h4>
+                <p style={nameStyle}>{product.name}</p>
+                <h4 style={priceStyle}>KES {product.price}</h4>
                 <img  alt="" style={vendorBanner} src="/images/jumia.png"/>
             </div>
         </a>
@@ -33,7 +34,7 @@ const imageStyle = {
 }
 
 const nameStyle = {
-    fontSize:"1em",
+    fontSize:"0.8em",
     padding:"10px 0"
 }
 

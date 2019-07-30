@@ -1,12 +1,25 @@
 import React, { Component } from 'react'
 
 class Form extends Component {
+    state = {
+        query:""
+    }
+
+    handleQueryChange = (e) =>{
+        this.setState({
+            query:e.target.value
+        })
+    }
+
+    handleSearchSubmit=(e)=>{
+        this.props.fetchResults(this.state.query);
+    }
     render() {
         return (
             <React.Fragment>
-                <form style={formStyle}>
-                    <input style={inputStyle} type="text" placeholder="Search for a product"/>
-                    <i style={searchStyle} className="fas fa-search"></i>
+                <form onSubmit={this.handleSearchSubmit} style={formStyle}>
+                    <input onChange={this.handleQueryChange} style={inputStyle} type="text" placeholder="Search for a product"/>
+                    <i onClick={this.handleSearchSubmit} style={searchStyle} className="fas fa-search"></i>
                 </form>
             </React.Fragment>
         )

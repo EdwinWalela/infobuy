@@ -7,7 +7,7 @@ function Header(props) {
     return (
         <div>
              <h1 style={titleStyle}>InfoBuy.<span style={{color:"#E84855"}}>ke</span></h1>
-             <Form />
+             <Form fetchResults={props.fetchResults}/>
         </div>
     )
 }
