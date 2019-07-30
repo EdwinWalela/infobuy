@@ -13,6 +13,7 @@ function App() {
            <Route exact path="/" component={Landing} />
            <Route path="/search" component={SearchPage} />
         </Router>
+        <Footer/>
     </div>
   );
 }

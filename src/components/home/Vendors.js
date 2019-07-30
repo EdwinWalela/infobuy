@@ -17,14 +17,14 @@ function Vendors(props) {
 const titleStyle = {
     textAlign:"center",
     margin:"100px auto 50px auto",
+    padding:"5px",
     color:"#403F4C"
 }
 
 const vendorImgStyle = {
-    height:"90px",
-    width:"25%",
-    minWidth:"150px",
-    maxWidth:"200px"
+    height:"80px",
+    width:"30%",
+    maxWidth:"150px"
 }
 
 Vendors.propTypes = {
