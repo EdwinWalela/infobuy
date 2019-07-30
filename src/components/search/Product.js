@@ -2,15 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function Product(props) {
+    let image = "/images/";
     let product = props.product
     return (
         <a href="">
             <div style={productStyle}>
                 <img alt="" style={imageStyle} src={product.thumb}/>
                 <hr/>
-                <p style={nameStyle}>{product.name}</p>
+                <p style={nameStyle}>{product.name.substr(0,30)}...</p>
                 <h4 style={priceStyle}>KES {product.price}</h4>
-                <img  alt="" style={vendorBanner} src="/images/jumia.png"/>
+                <img  alt="" style={vendorBanner} src={`${image}${product.source}.png`}/>
             </div>
         </a>
     )

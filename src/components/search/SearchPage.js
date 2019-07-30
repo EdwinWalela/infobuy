@@ -6,13 +6,16 @@ import ResultContainer from './ResultsContainer';
 
 function SearchPage(props) {
     return (
-        <React.Fragment>
+        <div style={wrapperStyle}>
             <SearchHeader fetchResults={props.fetchResults}/>
             <ResultContainer products={props.products}/>
-        </React.Fragment>
+        </div>
     )
 }
 
+const wrapperStyle = {
+    minHeight:"80vh"
+}
 SearchPage.propTypes = {
     products:PropTypes.array.isRequired
 }

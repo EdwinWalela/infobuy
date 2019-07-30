@@ -6,17 +6,12 @@ import Product from './Product';
 class ResultsContainer extends Component {
     
     state = {
-        jumia:[],
-        kilimall:[],
-        pigiame:[]
+        products:[]
     }
 
     componentWillReceiveProps(next){
-        console.log(next)
         this.setState({
-            jumia:next.products.jumia,
-            kilimall:next.products.kilimall,
-            pigiame:next.products.pigiame,
+            products:next.products
         })
     }
 
@@ -25,17 +20,7 @@ class ResultsContainer extends Component {
             <div style={containerStyle}>
             <p style={metaStyle}>Showing 10 results from 3 vendors</p>
                 {
-                    this.state.jumia.map(product=>(
-                        <Product product={product}/>
-                    ))
-                }
-                {
-                    this.state.kilimall.map(product=>(
-                        <Product product={product}/>
-                    ))
-                }
-                {
-                    this.state.pigiame.map(product=>(
+                    this.state.products.map(product=>(
                         <Product product={product}/>
                     ))
                 }

@@ -14,6 +14,7 @@ class Form extends Component {
     handleSearchSubmit=(e)=>{
         this.props.fetchResults(this.state.query);
     }
+    
     render() {
         return (
             <React.Fragment>
