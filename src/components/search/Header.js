@@ -12,10 +12,6 @@ function Header(props) {
     )
 }
 
-const headerStyle = {
-    border:"solid 1px",
-}
-
 const titleStyle = {
     textAlign:"center",
     fontSize:"1.3em",

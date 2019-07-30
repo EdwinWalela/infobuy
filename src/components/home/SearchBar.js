@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 class SearchBar extends Component {
     state = {}
 
+    onSubmit=(e)=>{
+    }
+
     render() {
         return (
             <React.Fragment>
-                <form style={formStyle}>
+                <form  style={formStyle}>
                     <input style={inputStyle} type="text" placeholder="Search for a product"/>
-                    <i style={searchStyle} className="fas fa-search"></i>
+                    <Link to="/search"><i style={searchStyle} className="fas fa-search"></i></Link>
                 </form>
             </React.Fragment>
         )

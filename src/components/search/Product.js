@@ -5,11 +5,11 @@ function Product(props) {
     return (
         <a href="">
             <div style={productStyle}>
-                <img style={imageStyle} src="https://i.roamcdn.net/hz/pi/listing-thumb-543w/a3120aebf877204e7e4b71a737ee21d9/-/hzfiles/pi/picture/qd7x6v4/487dc6d83ddc348ef0123c17591b879c26069ee0.png"/>
+                <img alt="" style={imageStyle} src="https://i.roamcdn.net/hz/pi/listing-thumb-543w/a3120aebf877204e7e4b71a737ee21d9/-/hzfiles/pi/picture/qd7x6v4/487dc6d83ddc348ef0123c17591b879c26069ee0.png"/>
                 <hr/>
                 <p style={nameStyle}>Product Name</p>
                 <h4 style={priceStyle}>KES 17,499</h4>
-                <img style={vendorBanner} src="/images/jumia.png"/>
+                <img  alt="" style={vendorBanner} src="/images/jumia.png"/>
             </div>
         </a>
     )
@@ -20,7 +20,7 @@ const productStyle = {
     border:"solid 1px",
     width:"90%",
     maxWidth:"150px",
-    margin:"10px",
+    margin:"5px",
     padding:"10px 20px",
     textAlign:"left"
 }

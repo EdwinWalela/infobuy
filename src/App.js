@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 
 import Landing from './components/home/Landing';
@@ -8,9 +9,10 @@ import SearchPage from './components/search/SearchPage';
 function App() {
   return (
     <div className="App">
-        {/* <Landing /> */}
-        <SearchPage />
-        <Footer />
+        <Router>
+           <Route exact path="/" component={Landing} />
+           <Route path="/search" component={SearchPage} />
+        </Router>
     </div>
   );
 }
