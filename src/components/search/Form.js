@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-class SearchBar extends Component {
-    state = {}
-
+class Form extends Component {
     render() {
         return (
             <React.Fragment>
@@ -16,27 +14,29 @@ class SearchBar extends Component {
 }
 
 const formStyle = {
+    display:"block",
     margin:"auto",
     width:"90%",
     maxWidth:"500px",
-    paddingLeft:"25px"
+    paddingLeft:"20px"
 }
 
 const inputStyle = {
-    padding:"10px",
-    fontSize:"1.2em",
+    padding:"5px",
+    fontSize:"1em",
     width:"80%"
 }
 
 const searchStyle = {
     border:"solid 1px",
     display:"inline-block",
-    padding:"15.5px",
+    padding:"9px",
     width:"20%",
-    maxWidth:"60px",
+    margin:"auto",
+    maxWidth:"50px",
     textAlign:"center",
     color:"#fff",
     background:"#ED254E"
 }
 
-export default SearchBar;
+export default Form;
