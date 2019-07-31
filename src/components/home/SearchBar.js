@@ -14,7 +14,7 @@ class SearchBar extends Component {
     }
 
     handleSearchSubmit=(e)=>{
-        this.props.fetchResults(this.state.query);
+        this.props.handleSearchSubmit(this.state.query);
     }
 
     render() {
@@ -62,7 +62,8 @@ const btnStyle = {
 }
 
 SearchBar.propTypes = {
-    fetchResults:PropTypes.func.isRequired
+    fetchResults:PropTypes.func.isRequired,
+    query:PropTypes.string.isRequired
 } 
 
 export default SearchBar;

@@ -11,20 +11,24 @@ class App extends Component {
 
     state = {
         query:"",
+        ignore:"",
         results:[],
         loading:false
     }
 
-    handleSearchSubmit = async(query) =>{
+    handleSearchSubmit = async(query,ignore,vendor) =>{
         this.setState({
+            ignore,
             query,
+            vendor,
             loading:true
         })
-        await this.fetchResults(query);
+        await this.fetchResults(query,ignore,vendor);
     }
 
-    fetchResults = async (query) =>{
-        let res = await Axios.get(`https://info-buy.herokuapp.com/api/v1/spider?q=${query}&limit=10`);
+    fetchResults = async (query,ignore,vendor) =>{
+        ignore = ignore.replace(/,/g,"+");
+        let res = await Axios.get(`https://info-buy.herokuapp.com/api/v1/spider?q=${query}&limit=10&ignore=${ignore}`);
         this.setState({
             results:res.data.data,
             loading:false
@@ -36,7 +40,9 @@ class App extends Component {
             <div className="App">
                 <Router>
                     <Route exact path="/" render={()=>
-                        <Landing fetchResults={this.fetchResults}/>
+                        <Landing 
+                            handleSearchSubmit={this.handleSearchSubmit}
+                        />
                     } />
                     <Route path="/search" render={()=>
                         <SearchPage 

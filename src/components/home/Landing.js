@@ -9,7 +9,9 @@ function Landing(props) {
         <div>
             <h1 style={titleStyle}>InfoBuy.<span style={{color:"#E84855"}}>ke</span></h1>
             <p style={sloganStyle}>Compare prices from popular vendors across Africa and the World.</p>
-            <SearchBar  fetchResults={props.fetchResults}/>
+            <SearchBar  
+                handleSearchSubmit={props.handleSearchSubmit}
+            />
             <Vendors />
         </div>
     )
@@ -30,7 +32,8 @@ const sloganStyle = {
 }
 
 Landing.propTypes = {
-    fetchResults:PropTypes.func.isRequired
+    handleSearchSubmit:PropTypes.func.isRequired,
+    query:PropTypes.string.isRequired
 }
 
 export default Landing
