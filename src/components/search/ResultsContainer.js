@@ -18,12 +18,15 @@ class ResultsContainer extends Component {
     render(){
         return (
             <div style={containerStyle}>
-            <p style={metaStyle}>Showing 10 results from 3 vendors</p>
-                {
-                    this.state.products.map(product=>(
-                        <Product product={product}/>
-                    ))
-                }
+            {!this.props.loading ? 
+                <React.Fragment>{
+                        this.state.products.map(product=>(
+                            <Product product={product}/>
+                        ))
+                    }
+                </React.Fragment>
+                 : <p>Fetching results <i class="fas fa-spinner"></i></p>}
+                    
             </div>
         )
     }

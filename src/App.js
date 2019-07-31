@@ -11,13 +11,23 @@ class App extends Component {
 
     state = {
         query:"",
-        results:[]
+        results:[],
+        loading:false
+    }
+
+    handleSearchSubmit = async(query) =>{
+        this.setState({
+            query,
+            loading:true
+        })
+        await this.fetchResults(query);
     }
 
     fetchResults = async (query) =>{
         let res = await Axios.get(`https://info-buy.herokuapp.com/api/v1/spider?q=${query}&limit=10`);
         this.setState({
-            results:res.data.data
+            results:res.data.data,
+            loading:false
         })
     }
 
@@ -30,8 +40,9 @@ class App extends Component {
                     } />
                     <Route path="/search" render={()=>
                         <SearchPage 
+                            loading={this.state.loading}
                             products={this.state.results}
-                            fetchResults={this.fetchResults}
+                            handleSearchSubmit={this.handleSearchSubmit}
                         />
                     } />
                 </Router>

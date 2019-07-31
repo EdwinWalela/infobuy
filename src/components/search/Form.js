@@ -11,8 +11,8 @@ class Form extends Component {
         })
     }
 
-    handleSearchSubmit=(e)=>{
-        this.props.fetchResults(this.state.query);
+    handleSearchSubmit= () =>{
+        this.props.handleSearchSubmit(this.state.query);
     }
     
     render() {
