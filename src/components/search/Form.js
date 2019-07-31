@@ -14,6 +14,10 @@ class Form extends Component {
         })
     }
 
+    handleFormSubmit= (e)=>{
+        e.preventDefault();
+    }
+
     handleSearchSubmit= () =>{
         this.props.handleSearchSubmit(this.state.query,this.state.ignore,this.state.vendor,this.state.condition,this.state.sort);
     }

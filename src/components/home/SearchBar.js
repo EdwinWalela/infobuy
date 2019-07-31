@@ -17,10 +17,15 @@ class SearchBar extends Component {
         this.props.handleSearchSubmit(this.state.query);
     }
 
+    handleFormSubmit = (e)=>{
+        e.preventDefault()
+        // this.handleSearchSubmit()
+    }
+
     render() {
         return (
             <React.Fragment>
-                <form onSubmit={this.handleSearchSubmit} style={formStyle}>
+                <form onSubmit={this.handleFormSubmit} style={formStyle}>
                     <input value={this.state.query} onChange={this.handleQueryChange} style={inputStyle} type="text" placeholder="Search for a product"/>
                     <Link onClick={this.handleSearchSubmit} to={`/search?q=${this.state.query}`}>
                         <i style={searchStyle} className="fas fa-search"></i>

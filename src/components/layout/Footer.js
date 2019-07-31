@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
     return (
         <div style={footerStyle}>
-           <p style={titleStyle}>Developers: <a href="#">API Documentation</a></p>
+           <p style={titleStyle}>Developers: <a target="_blank" href="https://info-buy.herokuapp.com/">API Documentation</a></p>
         </div>
     )
 }
@@ -19,7 +19,8 @@ const footerStyle = {
 }
 
 const titleStyle = {
-    fontSize:"0.9em"
+    fontSize:"0.9em",
+    textDecoration:"underline"
 }
 
 export default Footer;
