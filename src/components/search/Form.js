@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 class Form extends Component {
     state = {
         query:"",
-        ignore:""
+        ignore:"",
+        condition:""
     }
 
     handleQueryChange = (e) =>{
@@ -13,7 +14,7 @@ class Form extends Component {
     }
 
     handleSearchSubmit= () =>{
-        this.props.handleSearchSubmit(this.state.query,this.state.ignore,this.state.vendor);
+        this.props.handleSearchSubmit(this.state.query,this.state.ignore,this.state.vendor,this.state.condition);
     }
     
     render() {
@@ -26,11 +27,18 @@ class Form extends Component {
                     <div style={advancedSearch}>
                         <small>Advanced Search</small><br/>
                         <input onChange={this.handleQueryChange} name="ignore" style={ignoreStyle} placeholder="Words to ignore e.g Cases,Covers"/>{" "}
+                        <br/>
                         <select onChange={this.handleQueryChange} name="vendor">
                             <option selected value="all">All Vendors</option>
                             <option value="jumia">Jumia</option>
                             <option value="kilimall">Kilimall</option>
                             <option value="pigiame">Pigiame</option>
+                        </select>{" "}
+                        <select onChange={this.handleQueryChange} name="condition">
+                            <option selected value="all">Condition</option>
+                            <option value="all">All</option>
+                            <option value="new">New</option>
+                            <option value="used">Used</option>
                         </select>
                     </div>
                 </form>

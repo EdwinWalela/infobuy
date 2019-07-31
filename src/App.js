@@ -13,22 +13,25 @@ class App extends Component {
         query:"",
         ignore:"",
         results:[],
+        condition:"",
         loading:false
     }
 
-    handleSearchSubmit = async(query,ignore,vendor) =>{
+    handleSearchSubmit = async(query,ignore,vendor,condition) =>{
+        ignore = ignore || ""
         this.setState({
             ignore,
             query,
             vendor,
+            condition,
             loading:true
         })
-        await this.fetchResults(query,ignore,vendor);
+        await this.fetchResults(query,ignore,vendor,condition);
     }
 
-    fetchResults = async (query,ignore,vendor) =>{
+    fetchResults = async (query,ignore,vendor,condition) =>{
         ignore = ignore.replace(/,/g,"+");
-        let res = await Axios.get(`https://info-buy.herokuapp.com/api/v1/spider?q=${query}&limit=10&ignore=${ignore}`);
+        let res = await Axios.get(`https://info-buy.herokuapp.com/api/v1/spider?q=${query}&limit=10&ignore=${ignore}&src=${vendor}&condition=${condition}`);
         this.setState({
             results:res.data.data,
             loading:false
