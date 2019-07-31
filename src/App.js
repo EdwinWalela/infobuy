@@ -19,6 +19,8 @@ class App extends Component {
 
     handleSearchSubmit = async(query,ignore,vendor,condition) =>{
         ignore = ignore || ""
+        vendor = vendor || ""
+        condition = condition || ""
         this.setState({
             ignore,
             query,

@@ -26,15 +26,15 @@ class Form extends Component {
                     
                     <div style={advancedSearch}>
                         <small>Advanced Search</small><br/>
-                        <input onChange={this.handleQueryChange} name="ignore" style={ignoreStyle} placeholder="Words to ignore e.g Cases,Covers"/>{" "}
+                        <input onChange={this.handleQueryChange} name="ignore" style={ignoreStyle} placeholder="Words to ignore eg. Cases,Covers"/>{" "}
                         <br/>
-                        <select onChange={this.handleQueryChange} name="vendor">
+                        <select style={selectStyle} onChange={this.handleQueryChange} name="vendor">
                             <option selected value="all">All Vendors</option>
                             <option value="jumia">Jumia</option>
                             <option value="kilimall">Kilimall</option>
                             <option value="pigiame">Pigiame</option>
                         </select>{" "}
-                        <select onChange={this.handleQueryChange} name="condition">
+                        <select style={selectStyle} onChange={this.handleQueryChange} name="condition">
                             <option selected value="all">Condition</option>
                             <option value="all">All</option>
                             <option value="new">New</option>
@@ -59,7 +59,13 @@ const ignoreStyle = {
     fontSize:"0.8em",
     width:"80%",
     margin:"10px 0",
-    maxWidth:"300px"
+    maxWidth:"300px",
+    padding:"5px",
+    textTransform:"capitalize"
+}
+
+const selectStyle = {
+    padding:"5px"
 }
 
 const inputStyle = {

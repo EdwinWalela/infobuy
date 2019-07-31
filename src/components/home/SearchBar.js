@@ -41,7 +41,7 @@ const formStyle = {
 const inputStyle = {
     padding:"10px",
     fontSize:"1.1em",
-    width:"80%",
+    width:"70%",
     letterSpacing:"1px"
 }
 
