@@ -37,10 +37,22 @@ class App extends Component {
         let res;
         try{
             res = await Axios.get(`https://info-buy.herokuapp.com/api/v1/spider?q=${query}&limit=10&ignore=${ignore}&src=${vendor}&condition=${condition}&sort=${sort}`);
-            this.setState({
-                results:res.data.data,
-                loading:false
-            })
+            
+            if(res.data.data.length === 0){
+                let empty = {
+                    name:"No results Found",
+                    thumb:"https://images.ctfassets.net/wfptrcrbtkd0/74BYnsR0kgUyqeyQSAeOMi/e02c199a83f01658fd1d60159f0a5073/no-image-available.png?w=360"
+                }
+                this.setState({
+                    results:[empty],
+                    loading:false
+                })
+            }else{
+                this.setState({
+                    results:res.data.data,
+                    loading:false
+                })
+            }
             console.log(res.data)
         }catch(err){
             let empty = {

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {NavLink} from 'react-router-dom'
 
 import SearchBar from './SearchBar';
 import Vendors from './Vendors';
@@ -7,7 +8,7 @@ import Vendors from './Vendors';
 function Landing(props) {
     return (
         <div>
-            <h1 style={titleStyle}>InfoBuy.<span style={{color:"#E84855"}}>ke</span></h1>
+             <NavLink to="/"><h1 style={titleStyle}>InfoBuy.<span style={{color:"#E84855"}}>ke</span></h1></NavLink>
             <p style={sloganStyle}>Compare prices from popular vendors across Africa and the World.</p>
             <SearchBar  
                 handleSearchSubmit={props.handleSearchSubmit}

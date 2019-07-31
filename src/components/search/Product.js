@@ -5,7 +5,7 @@ function Product(props) {
     let image = "/images/";
     let product = props.product
     return (
-        <a href="">
+        <a target="_blank" href={product.url}>
             <div style={productStyle}>
                 <img alt="" style={imageStyle} src={product.thumb}/>
                 <hr/>

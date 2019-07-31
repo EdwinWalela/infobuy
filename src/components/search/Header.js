@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import Form from './Form';
@@ -6,7 +7,7 @@ import Form from './Form';
 function Header(props) {
     return (
         <div>
-             <h1 style={titleStyle}>InfoBuy.<span style={{color:"#E84855"}}>ke</span></h1>
+             <NavLink to="/"><h1 style={titleStyle}>InfoBuy.<span style={{color:"#E84855"}}>ke</span></h1></NavLink>
              <Form handleSearchSubmit={props.handleSearchSubmit}/>
         </div>
     )
