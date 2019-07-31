@@ -17,7 +17,7 @@ class App extends Component {
         loading:false
     }
 
-    handleSearchSubmit = async(query,ignore,vendor,condition) =>{
+    handleSearchSubmit = async(query,ignore,vendor,condition,sort) =>{
         ignore = ignore || ""
         vendor = vendor || ""
         condition = condition || ""
@@ -26,18 +26,33 @@ class App extends Component {
             query,
             vendor,
             condition,
+            sort,
             loading:true
         })
-        await this.fetchResults(query,ignore,vendor,condition);
+        await this.fetchResults(query,ignore,vendor,condition,sort);
     }
 
-    fetchResults = async (query,ignore,vendor,condition) =>{
+    fetchResults = async (query,ignore,vendor,condition,sort) =>{
         ignore = ignore.replace(/,/g,"+");
-        let res = await Axios.get(`https://info-buy.herokuapp.com/api/v1/spider?q=${query}&limit=10&ignore=${ignore}&src=${vendor}&condition=${condition}`);
-        this.setState({
-            results:res.data.data,
-            loading:false
-        })
+        let res;
+        try{
+            res = await Axios.get(`https://info-buy.herokuapp.com/api/v1/spider?q=${query}&limit=10&ignore=${ignore}&src=${vendor}&condition=${condition}&sort=${sort}`);
+            this.setState({
+                results:res.data.data,
+                loading:false
+            })
+            console.log(res.data)
+        }catch(err){
+            let empty = {
+                name:"No results Found",
+                thumb:"https://images.ctfassets.net/wfptrcrbtkd0/74BYnsR0kgUyqeyQSAeOMi/e02c199a83f01658fd1d60159f0a5073/no-image-available.png?w=360"
+            }
+            this.setState({
+                results:[empty],
+                loading:false
+            })
+        }
+        
     }
 
     render(){

@@ -4,7 +4,8 @@ class Form extends Component {
     state = {
         query:"",
         ignore:"",
-        condition:""
+        condition:"",
+        sort:""
     }
 
     handleQueryChange = (e) =>{
@@ -14,7 +15,7 @@ class Form extends Component {
     }
 
     handleSearchSubmit= () =>{
-        this.props.handleSearchSubmit(this.state.query,this.state.ignore,this.state.vendor,this.state.condition);
+        this.props.handleSearchSubmit(this.state.query,this.state.ignore,this.state.vendor,this.state.condition,this.state.sort);
     }
     
     render() {
@@ -39,7 +40,12 @@ class Form extends Component {
                             <option value="all">All</option>
                             <option value="new">New</option>
                             <option value="used">Used</option>
-                        </select>
+                        </select>{" "}
+                        <select style={selectStyle} onChange={this.handleQueryChange} name="sort">
+                            <option selected value="default">Sort</option>
+                            <option value="asc">Price ^</option>
+                            <option value="desc">Price v</option>
+                        </select>{" "}
                     </div>
                 </form>
             </React.Fragment>

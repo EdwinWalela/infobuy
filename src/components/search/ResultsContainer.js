@@ -26,7 +26,7 @@ class ResultsContainer extends Component {
                     }
                 </React.Fragment>
                  : <p>Fetching results <i class="fas fa-spinner"></i></p>}
-                    
+                
             </div>
         )
     }

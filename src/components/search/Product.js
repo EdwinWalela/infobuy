@@ -9,8 +9,8 @@ function Product(props) {
             <div style={productStyle}>
                 <img alt="" style={imageStyle} src={product.thumb}/>
                 <hr/>
-                <p style={nameStyle}>{product.name.substr(0,30)}...</p>
-                <h4 style={priceStyle}>KES {product.price}</h4>
+                <p style={nameStyle}>{product.name.substr(0,20)}...</p>
+                <h4 style={priceStyle}>{product.price ? "KES "+product.price : ""}</h4>
                 <img  alt="" style={vendorBanner} src={`${image}${product.source}.png`}/>
             </div>
         </a>
@@ -19,7 +19,7 @@ function Product(props) {
 
 const productStyle = {
     display:"inline-block",
-    border:"solid 1px",
+    border:"solid 1px rgba(0,0,0,0.1)",
     width:"90%",
     maxWidth:"150px",
     margin:"5px",
